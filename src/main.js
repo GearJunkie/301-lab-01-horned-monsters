@@ -12,7 +12,7 @@ class Main extends React.Component {
 
    beastArr = (data) => {
      let newArr = data.map( (value) => {
-       return <HornedBeasts title={value.title} description={value.description}/>;
+       return <HornedBeasts title={value.title} image_url={value.image_url} description={value.description} horns={value.horns}/>;
      });
      return newArr;
    };

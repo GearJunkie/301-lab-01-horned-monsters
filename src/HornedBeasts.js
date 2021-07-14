@@ -1,5 +1,8 @@
 import React from "react";
 import data from "./data.json";
+import heart from "./Red-Heart.png";
+import {Container, Row, Col} from "react-bootstrap";
+
 class HornedBeasts extends React.Component {
 
   constructor(props) {
@@ -18,30 +21,20 @@ class HornedBeasts extends React.Component {
     console.log(this.state.data);
     return (
       <>
-        <h1>{this.props.title}</h1>
-        {/* <h2>{this.state.data[0].description}</h2> */}
-      </>
-    );
+        <Container>
+          <Row>
+            <Col>
+              <img src={this.props.image_url} onClick={this.poke} />
+              <h1>{this.props.title}</h1>
+              <h2>{this.props.description}</h2>
+              <h3>{this.props.keyword}</h3>
+              <h3>{this.props.horns}</h3>
+              <span>Number of times favorited: {this.state.pokesTheBeast}</span>
+              <img src={heart} />
+            </Col>
+          </Row>
+        </Container>
+      </>);
   }
 }
-
-
-
-
-
-
-
-// {/* //this is lab 01 code//
-//   render() {
-//     return (
-//       <div className = "hBeast">
-//         <h2>
-//           {this.props.value}
-//         </h2>
-//         <img src = "https://6erxg60qvo1qvjha44jrgpan-wpengine.netdna-ssl.com/wp-content/uploads/2017/08/unicorns-1-700x400.jpg" alt = "" title = ""></img>
-//         <p>{this.props.description}</p>
-//       </div>
-//     );
-//   } */}
-
 export default HornedBeasts;

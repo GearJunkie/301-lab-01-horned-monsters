@@ -1,7 +1,7 @@
-import React from "react";
-import data from "./data.json";
-import heart from "./Red-Heart.png";
-import {Container, Row, Col} from "react-bootstrap";
+import React from 'react';
+import data from './data.json';
+import heart from './Red-Heart.png';
+import {Row, Col} from 'react-bootstrap';
 
 class HornedBeasts extends React.Component {
 
@@ -21,19 +21,19 @@ class HornedBeasts extends React.Component {
     console.log(this.state.data);
     return (
       <>
-        <Container>
-          <Row>
-            <Col>
-              <img src={this.props.image_url} onClick={this.poke} />
-              <h1>{this.props.title}</h1>
-              <h2>{this.props.description}</h2>
-              <h3>{this.props.keyword}</h3>
-              <h3>{this.props.horns}</h3>
-              <span>Number of times favorited: {this.state.pokesTheBeast}</span>
-              <img src={heart} />
-            </Col>
-          </Row>
-        </Container>
+        <Row>
+          <Col>
+            <img src={this.props.image_url} onClick={this.poke} />
+          </Col>
+          <Col>
+            <h1>{this.props.title}</h1>
+            <h2>{this.props.description}</h2>
+            <h3>{this.props.keyword}</h3>
+            <h3>{this.props.horns}</h3>
+            <span>Number of times favorited: {this.state.pokesTheBeast}</span>
+            <img src={heart} />
+          </Col>
+        </Row>
       </>);
   }
 }

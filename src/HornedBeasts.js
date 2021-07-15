@@ -20,7 +20,7 @@ class HornedBeasts extends React.Component {
   render() {
     console.log(this.state.data);
     return (
-      <>
+      <div className = "hornedbeasts">
         <Row>
           <Col>
             <img src={this.props.image_url} onClick={this.poke} />
@@ -34,7 +34,8 @@ class HornedBeasts extends React.Component {
             <img src={heart} />
           </Col>
         </Row>
-      </>);
+      </div>);
   }
 }
+
 export default HornedBeasts;

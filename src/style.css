@@ -1,0 +1,8 @@
+.col {
+  max-width: 50%;
+  display: inline-block;
+}
+
+img {
+  max-width: 50%;
+}

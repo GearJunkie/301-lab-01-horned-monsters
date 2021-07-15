@@ -1,41 +1,39 @@
 import React from 'react';
-import data from './data.json';
-import heart from './Red-Heart.png';
-import {Row, Col} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card';
+import heart from './Red-Heart 20x20pix.png';
 
 class HornedBeasts extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      pokesTheBeast: 0,
-      data: data
+      pokes: 0,
     };
   }
 
-  poke = () => {
-    this.setState({ pokesTheBeast: this.state.pokesTheBeast + 1});
+  addPoke = () => {
+    this.setState({ pokes: this.state.pokes + 1});
+    this.props.displayAsModal(this.props.title);
   }
 
   render() {
-    console.log(this.state.data);
     return (
-      <div className = "hornedbeasts">
-        <Row>
-          <Col>
-            <img src={this.props.image_url} onClick={this.poke} />
-          </Col>
-          <Col>
-            <h1>{this.props.title}</h1>
-            <h2>{this.props.description}</h2>
-            <h3>{this.props.keyword}</h3>
-            <h3>{this.props.horns}</h3>
-            <span>Number of times favorited: {this.state.pokesTheBeast}</span>
-            <img src={heart} />
-          </Col>
-        </Row>
-      </div>);
-  }
+      <Card
+        style={{ width: '18rem' }}
+        onClick={this.addPoke}>
+        
+        <Card.Img variant="top" src={this.props.image} />
+        <Card.Body>
+          <Card.Title>{this.props.title}</Card.Title>
+          <Card.Text><img src={heart} />{this.state.pokes}
+          </Card.Text>
+          <Card.Text>
+            {this.props.description}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    );}
 }
 
 export default HornedBeasts;

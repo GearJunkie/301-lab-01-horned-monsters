@@ -6,7 +6,6 @@ import Card from 'react-bootstrap/Card';
 
 
 class SelectedBeast extends React.Component {
-  
   render() {
     return (
       <Modal show={this.props.show} onHide={this.props.closeModal}>

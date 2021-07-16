@@ -28,10 +28,10 @@ class App extends React.Component {
 
   filterHorns = (e) => {
     e.preventDefault();
-    if (this.state.chosenHorns === "default"){
+    if (this.state.chosenHorns === 'default'){
       this.setState({beasts: beastData});
     } else {
-      console.log("made to else");
+      console.log('made to else');
       let someHorns = beastData.filter((beast) => beast.horns === parseInt(this.state.chosenHorns));
       this.setState({beasts: someHorns});
     }

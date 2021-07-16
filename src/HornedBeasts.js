@@ -22,7 +22,6 @@ class HornedBeasts extends React.Component {
       <Card
         style={{ width: '18rem' }}
         onClick={this.addPoke}>
-        
         <Card.Img variant="top" src={this.props.image} />
         <Card.Body>
           <Card.Title>{this.props.title}</Card.Title>

@@ -14,8 +14,7 @@ class App extends React.Component {
       beasts: beastData,
       showModal: false,
       pokedBeast: {},
-      formSelect: {},
-      chosenHorns: 100
+      chosenHorns: 1
     };
   }
 
@@ -27,22 +26,33 @@ class App extends React.Component {
     this.setState({ showModal: false});
   }
 
+  filterHorns = (e) => {
+    e.preventDefault();
+    if (this.state.chosenHorns === "default"){
+      this.setState({beasts: beastData});
+    } else {
+      console.log("made to else");
+      let someHorns = beastData.filter((beast) => beast.horns === parseInt(this.state.chosenHorns));
+      this.setState({beasts: someHorns});
+    }
+  }
+
   handleFormSubmit = e => {
     e.preventDefault();
-    console.log(e.target.test.value);
-    this.setState({chosenHorns: parseInt(e.target.test.value)});
+    console.log(e.target.value);
+    this.setState({chosenHorns: e.target.value});
   }
 
 
   render() {
-    let someHorns = beastData.filter((beast) => beast.horns === this.state.chosenHorns);
     return (
       <div className = "App">
         <Header />
         <BeastForm
-          uponSubmit={this.handleFormSubmit}/>
+          filterHorns={this.filterHorns}
+          handleFormSubmit={this.handleFormSubmit}/>
         <Main
-          beasts={someHorns}
+          beasts={this.state.beasts}
           displayAsModal={this.displayAsModal}/>
         <SelectedBeast
           pokedBeast={this.state.pokedBeast}

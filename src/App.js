@@ -5,6 +5,7 @@ import Footer from './footer.js';
 import SelectedBeast from './SelectedBeast.js';
 import beastData from './data.json';
 import './style.css';
+import BeastForm from './BeastForm.js';
 
 
 class App extends React.Component {
@@ -13,7 +14,8 @@ class App extends React.Component {
     this.state = {
       beasts: beastData,
       showModal: false,
-      pokedBeast: {}
+      pokedBeast: {},
+      formSelect: {}
     };
   }
 
@@ -23,6 +25,12 @@ class App extends React.Component {
   }
   collapseModal = () => {
     this.setState({ showModal: false});
+  }
+
+  handleFormSubmit = e => {
+    e.preventDefault();
+    let formSelect = beastData.find(beast => beast.horns);
+    this.setState({formSelect});
   }
 
 
@@ -38,12 +46,12 @@ class App extends React.Component {
           show={this.state.showModal}
           closeModal={this.collapseModal}
         />
+        <BeastForm
+          uponSubmit={this.handleFormSubmit}/>
         <Footer />
       </div>
     );
   }
 }
-
-
 
 export default App;

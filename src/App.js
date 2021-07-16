@@ -5,7 +5,7 @@ import Footer from './footer.js';
 import SelectedBeast from './SelectedBeast.js';
 import beastData from './data.json';
 import './style.css';
-import BeastForm from './BeastForm.js';
+// import BeastForm from './BeastForm.js';
 
 
 class App extends React.Component {
@@ -46,8 +46,8 @@ class App extends React.Component {
           show={this.state.showModal}
           closeModal={this.collapseModal}
         />
-        <BeastForm
-          uponSubmit={this.handleFormSubmit}/>
+        {/* <BeastForm
+          uponSubmit={this.handleFormSubmit}/> */}
         <Footer />
       </div>
     );

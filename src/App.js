@@ -5,8 +5,7 @@ import Footer from './footer.js';
 import SelectedBeast from './SelectedBeast.js';
 import beastData from './data.json';
 import './style.css';
-// import BeastForm from './BeastForm.js';
-
+import BeastForm from './BeastForm.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +14,8 @@ class App extends React.Component {
       beasts: beastData,
       showModal: false,
       pokedBeast: {},
-      formSelect: {}
+      formSelect: {},
+      chosenHorns: 100
     };
   }
 
@@ -29,25 +29,26 @@ class App extends React.Component {
 
   handleFormSubmit = e => {
     e.preventDefault();
-    let formSelect = beastData.find(beast => beast.horns);
-    this.setState({formSelect});
+    console.log(e.target.test.value);
+    this.setState({chosenHorns: parseInt(e.target.test.value)});
   }
 
 
   render() {
+    let someHorns = beastData.filter((beast) => beast.horns === this.state.chosenHorns);
     return (
       <div className = "App">
         <Header />
+        <BeastForm
+          uponSubmit={this.handleFormSubmit}/>
         <Main
-          beasts={this.state.beasts}
+          beasts={someHorns}
           displayAsModal={this.displayAsModal}/>
         <SelectedBeast
           pokedBeast={this.state.pokedBeast}
           show={this.state.showModal}
           closeModal={this.collapseModal}
         />
-        {/* <BeastForm
-          uponSubmit={this.handleFormSubmit}/> */}
         <Footer />
       </div>
     );

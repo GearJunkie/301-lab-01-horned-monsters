@@ -5,7 +5,7 @@ import HornedBeasts from './HornedBeasts.js';
 
 class Main extends React.Component {
   //------My render beasts cards--------//
- render() {
+  render() {
     return (
       <div id="beastCards">
         <CardColumns>

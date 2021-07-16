@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 class BeastForm extends React.Component {
   render () {
     return (
-      <Form  onSubmit={this.props.uponSubmit}>
+      <Form onSubmit={this.props.uponSubmit}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Beast By Number Of Horns</Form.Label>
           <Form.Control name="test" as="select" aria-label="Default select example">
@@ -20,7 +20,6 @@ class BeastForm extends React.Component {
           We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-      
         <Button variant="primary" type="submit">
       Submit
         </Button>
